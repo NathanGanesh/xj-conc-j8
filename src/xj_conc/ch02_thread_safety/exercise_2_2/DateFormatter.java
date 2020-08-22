@@ -10,13 +10,15 @@ import java.util.*;
  */
 @ThreadSafe
 public class DateFormatter {
-    private final DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 
-    public String format(Date date) {
+    public static String format(Date date) {
+     DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+
         return df.format(date);
     }
 
     public Date parse(String date) throws ParseException {
+        DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
         return df.parse(date);
     }
 }
