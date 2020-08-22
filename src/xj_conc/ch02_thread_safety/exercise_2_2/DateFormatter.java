@@ -8,7 +8,7 @@ import java.util.*;
 /**
  * Solve thread safety by using stack confinement.
  */
-@NotThreadSafe
+@ThreadSafe
 public class DateFormatter {
     private final DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 
