@@ -3,21 +3,22 @@ package xj_conc.ch02_thread_safety.exercise_2_4;
 import net.jcip.annotations.*;
 
 import java.text.*;
-import java.util.*;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 /**
  * Solve thread safety by using the immutable parser object
  * DateTimeFormatter.ISO_LOCAL_DATE.  Your methods would now use LocalDate.
  */
-@NotThreadSafe
+@ThreadSafe
 public class DateFormatter {
-    private final DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+    private static final DateTimeFormatter df = DateTimeFormatter.ISO_LOCAL_DATE;
 
-    public String format(Date date) {
+    public String format(LocalDate date) {
         return df.format(date);
     }
 
-    public Date parse(String date) throws ParseException {
-        return df.parse(date);
+    public LocalDate parse(String date) throws ParseException {
+        return LocalDate.parse(date, df);
     }
 }

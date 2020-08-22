@@ -21,4 +21,5 @@ public class DateFormatter {
         DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
         return df.parse(date);
     }
+
 }
